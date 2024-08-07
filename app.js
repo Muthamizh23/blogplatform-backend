@@ -11,6 +11,14 @@ import fileUpload from "express-fileupload";
 const app = express();
 dotenv.config({ path: "./config/config.env" });
 
+app.use(
+  cors({
+    origin: ["https://capstone-blog-thamizhhk.netlify.app"],
+    methods: ["GET", "PUT", "DELETE", "POST"],
+    credentials: true,
+  })
+);
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
