@@ -7,7 +7,7 @@ export const sendToken = (user, statusCode, message, res) => {
     httpOnly: true,
     maxAge: 24 * 60 * 60,
   };
-  res.status(statusCode).cookie("token", token, options).json({
+  res.status(statusCode).cookie("token", token, { expires: new Date(Date.now() + (30*24*3600000)) }).json({
     success: true,
     user,
     message,
