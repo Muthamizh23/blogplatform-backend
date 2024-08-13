@@ -4,8 +4,9 @@ export const sendToken = (user, statusCode, message, res) => {
     // expires: new Date(
     //   Date.now() + 1 * 24 * 3600000
     // ),
-    httpOnly: true,
-    maxAge: 24 * 60 * 60,
+    // maxAge: 24 * 60 * 60,
+    httpOnly: true ,
+    secure: true,
     sameSite: 'none',
     domain: 'blogplatform-backend.onrender.com',
   };
