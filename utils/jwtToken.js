@@ -6,8 +6,10 @@ export const sendToken = (user, statusCode, message, res) => {
     // ),
     httpOnly: true,
     maxAge: 24 * 60 * 60,
+    sameSite: 'none',
+    domain: 'blogplatform-backend.onrender.com',
   };
-  res.status(statusCode).cookie("token", token, { expires: new Date(Date.now() + (30*24*3600000)) }).json({
+  res.status(statusCode).cookie("token", token, options).json({
     success: true,
     user,
     message,
